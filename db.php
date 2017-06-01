@@ -1,5 +1,5 @@
 <?php
-include '../vendor/autoload.php';
+include './vendor/autoload.php';
 
 $database = new \Medoo\Medoo([
     // 必须配置项

@@ -37,7 +37,11 @@ class wechatCallbackapiTest
         //get post data, May be due to the different environments
         $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
 
-        
+        include './db.php';
+        $data = array(
+            'xml' => $postStr,
+        );
+        $database->insert('xml', $data);
 
         //extract post data
         if (!empty($postStr)){
@@ -45,6 +49,9 @@ class wechatCallbackapiTest
                the best way is to check the validity of xml by yourself */
             libxml_disable_entity_loader(true);
             $postObj = simplexml_load_string($postStr, 'SimpleXMLElement', LIBXML_NOCDATA);
+
+
+
             $fromUsername = $postObj->FromUserName;
             $toUsername = $postObj->ToUserName;
             $keyword = trim($postObj->Content);
