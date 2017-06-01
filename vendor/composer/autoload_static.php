@@ -12,14 +12,30 @@ class ComposerStaticInitbaf562a04b9e9c511a8fbd0823f0e98c
     );
 
     public static $prefixLengthsPsr4 = array (
+        'W' => 
+        array (
+            'Whoops\\' => 7,
+        ),
         'S' => 
         array (
             'Symfony\\Polyfill\\Mbstring\\' => 26,
             'Symfony\\Component\\VarDumper\\' => 28,
         ),
+        'P' => 
+        array (
+            'Psr\\Log\\' => 8,
+        ),
+        'M' => 
+        array (
+            'Medoo\\' => 6,
+        ),
     );
 
     public static $prefixDirsPsr4 = array (
+        'Whoops\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/filp/whoops/src/Whoops',
+        ),
         'Symfony\\Polyfill\\Mbstring\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/polyfill-mbstring',
@@ -27,6 +43,14 @@ class ComposerStaticInitbaf562a04b9e9c511a8fbd0823f0e98c
         'Symfony\\Component\\VarDumper\\' => 
         array (
             0 => __DIR__ . '/..' . '/symfony/var-dumper',
+        ),
+        'Psr\\Log\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/log/Psr/Log',
+        ),
+        'Medoo\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/catfan/medoo/src',
         ),
     );
 
