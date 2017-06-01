@@ -7,13 +7,14 @@
 define("TOKEN", "xdl2017");
 $wechatObj = new wechatCallbackapiTest();
 
-if ($_GET['echostr'])
+if (isset($_GET['echostr']))
 {
-    $this->valid();
+    $wechatObj->valid();
 }
 else
 {
-    $this->responseMsg();
+    // 接收微信服务器发送过来的xml
+    $wechatObj->responseMsg();
 }
 
 $wechatObj->valid();
@@ -35,6 +36,8 @@ class wechatCallbackapiTest
     {
         //get post data, May be due to the different environments
         $postStr = $GLOBALS["HTTP_RAW_POST_DATA"];
+
+        
 
         //extract post data
         if (!empty($postStr)){
