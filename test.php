@@ -1,4 +1,6 @@
 <?php
+echo mt_rand(0,9); die;
+
 $postStr = <<<EOT
 <xml>
  <ToUserName><![CDATA[隔壁老王]]></ToUserName>
@@ -59,28 +61,31 @@ $textTpl = <<<EOT
 <FromUserName><![CDATA[%s]]></FromUserName>
 <CreateTime>%s</CreateTime>
 <MsgType><![CDATA[%s]]></MsgType>
-<ArticleCount>%s</ArticleCount>
-<Articles>
+<Image>
+<MediaId><![CDATA[%s]]></MediaId>
+</Image>
+</xml>
 EOT;
 
-$str = "";
-foreach ($arr as $v)
-{
-    $str .= "<item>";
-    $str .= "<Title><![CDATA[".$v['title']."]]></Title>";
-    $str .= "<Description><![CDATA[".$v['description']."]]></Description>";
-    $str .= "<PicUrl><![CDATA[".$v['picUrl']."]]></PicUrl>";
-    $str .= "<Url><![CDATA[".$v['url']."]]></Url>";
-    $str .= "</item>";
-}
-
-$textTpl .= $str;
-$textTpl .= "</Articles></xml>";
+//$str = "";
+//foreach ($arr as $v)
+//{
+//    $str .= "<item>";
+//    $str .= "<Title><![CDATA[".$v['title']."]]></Title>";
+//    $str .= "<Description><![CDATA[".$v['description']."]]></Description>";
+//    $str .= "<PicUrl><![CDATA[".$v['picUrl']."]]></PicUrl>";
+//    $str .= "<Url><![CDATA[".$v['url']."]]></Url>";
+//    $str .= "</item>";
+//}
+//
+//$textTpl .= $str;
+//$textTpl .= "</Articles></xml>";
 
 $time = time();
-$msgtype = 'news';
+$msgtype = 'image';
 $nums = count($arr);
 $content = "欢迎来到微信公众号的开发世界！__GZPHP27";
+$mediaid = '';
 
 // Return a formatted string
 $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $nums);

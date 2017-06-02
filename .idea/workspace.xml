@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="393c885d-60e2-4320-8e68-50d2581b9efa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data.txt" afterPath="$PROJECT_DIR$/data.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/curl_example.php" afterPath="$PROJECT_DIR$/demo/curl_example.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.php" afterPath="$PROJECT_DIR$/test.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx.php" afterPath="$PROJECT_DIR$/wx.php" />
     </list>
@@ -20,34 +19,46 @@
       <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="287">
-              <caret line="85" column="80" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="85" selection-end-column="80" />
+            <state relative-caret-position="312">
+              <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
               <folding>
-                <marker date="1496390033870" expanded="true" signature="28:323" ph="..." />
-                <marker date="1496390033870" expanded="true" signature="1809:1998" ph="..." />
-                <marker date="1496390033870" expanded="true" signature="1809:2005" ph="..." />
-                <marker date="1496390033870" expanded="true" signature="1998:2005" ph="..." />
-                <marker date="1496390033870" expanded="true" signature="2058:2093" ph="..." />
+                <marker date="1496391932320" expanded="true" signature="53:348" ph="..." />
+                <marker date="1496391932320" expanded="true" signature="1834:2038" ph="..." />
+                <marker date="1496391932320" expanded="true" signature="1834:2045" ph="..." />
+                <marker date="1496391932320" expanded="true" signature="1988:2031" ph="..." />
+                <marker date="1496391932320" expanded="true" signature="2038:2045" ph="..." />
+                <marker date="1496391932320" expanded="true" signature="2106:2143" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wx.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="curl_example.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/demo/curl_example.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="696">
+              <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="wx.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/wx.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-14">
-              <caret line="67" column="17" lean-forward="true" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+            <state relative-caret-position="248">
+              <caret line="62" column="39" lean-forward="false" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
               <folding>
                 <element signature="n#valid#0;n#wxModel#0;n#!!top" expanded="false" />
-                <element signature="e#1924#2354#1#PHP" expanded="false" />
-                <element signature="e#2380#2814#1#PHP" expanded="false" />
-                <element signature="e#2840#3269#1#PHP" expanded="false" />
-                <element signature="e#3324#3753#0#PHP" expanded="false" />
-                <element signature="e#3807#4283#0#PHP" expanded="false" />
+                <element signature="e#1763#4666#0#PHP" expanded="false" />
+                <element signature="e#1899#2329#1#PHP" expanded="false" />
+                <element signature="e#2355#2789#1#PHP" expanded="false" />
+                <element signature="e#2815#3244#1#PHP" expanded="false" />
+                <element signature="e#3299#3728#0#PHP" expanded="false" />
+                <element signature="e#3782#4254#0#PHP" expanded="false" />
                 <element signature="n#checkSignature#0;n#wxModel#0;n#!!top" expanded="false" />
-                <marker date="1496390166493" expanded="true" signature="3367:3748" ph="..." />
-                <marker date="1496390166493" expanded="true" signature="5218:5477" ph="..." />
+                <marker date="1496391853275" expanded="true" signature="3342:3723" ph="..." />
+                <marker date="1496391853275" expanded="true" signature="5286:5545" ph="..." />
               </folding>
             </state>
           </provider>
@@ -73,10 +84,10 @@
       <list>
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/index.php" />
-        <option value="$PROJECT_DIR$/demo/curl_example.php" />
         <option value="$PROJECT_DIR$/demo/db_example.php" />
-        <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/wx.php" />
+        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/demo/curl_example.php" />
       </list>
     </option>
   </component>
@@ -122,6 +133,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="wechat.co" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wechat.co" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="wechat.co" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="demo" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -227,12 +252,12 @@
       <updated>1496301895887</updated>
       <workItem from="1496301897625" duration="4996000" />
       <workItem from="1496373491453" duration="60000" />
-      <workItem from="1496384645299" duration="5520000" />
+      <workItem from="1496384645299" duration="7091000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10576000" />
+    <option name="totallyTimeSpent" value="12147000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -272,6 +297,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="33" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -279,6 +305,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="10" column="17" lean-forward="true" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -353,13 +380,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="240">
           <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/curl_example.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="13" lean-forward="true" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -371,35 +392,45 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.php">
+    <entry file="file://$PROJECT_DIR$/wx.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="85" column="80" lean-forward="true" selection-start-line="31" selection-start-column="0" selection-end-line="85" selection-end-column="80" />
+        <state relative-caret-position="248">
+          <caret line="62" column="39" lean-forward="false" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
           <folding>
-            <marker date="1496390033870" expanded="true" signature="28:323" ph="..." />
-            <marker date="1496390033870" expanded="true" signature="1809:1998" ph="..." />
-            <marker date="1496390033870" expanded="true" signature="1809:2005" ph="..." />
-            <marker date="1496390033870" expanded="true" signature="1998:2005" ph="..." />
-            <marker date="1496390033870" expanded="true" signature="2058:2093" ph="..." />
+            <element signature="n#valid#0;n#wxModel#0;n#!!top" expanded="false" />
+            <element signature="e#1763#4666#0#PHP" expanded="false" />
+            <element signature="e#1899#2329#1#PHP" expanded="false" />
+            <element signature="e#2355#2789#1#PHP" expanded="false" />
+            <element signature="e#2815#3244#1#PHP" expanded="false" />
+            <element signature="e#3299#3728#0#PHP" expanded="false" />
+            <element signature="e#3782#4254#0#PHP" expanded="false" />
+            <element signature="n#checkSignature#0;n#wxModel#0;n#!!top" expanded="false" />
+            <marker date="1496391853275" expanded="true" signature="3342:3723" ph="..." />
+            <marker date="1496391853275" expanded="true" signature="5286:5545" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/wx.php">
+    <entry file="file://$PROJECT_DIR$/test.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-14">
-          <caret line="67" column="17" lean-forward="true" selection-start-line="67" selection-start-column="17" selection-end-line="67" selection-end-column="17" />
+        <state relative-caret-position="312">
+          <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
           <folding>
-            <element signature="n#valid#0;n#wxModel#0;n#!!top" expanded="false" />
-            <element signature="e#1924#2354#1#PHP" expanded="false" />
-            <element signature="e#2380#2814#1#PHP" expanded="false" />
-            <element signature="e#2840#3269#1#PHP" expanded="false" />
-            <element signature="e#3324#3753#0#PHP" expanded="false" />
-            <element signature="e#3807#4283#0#PHP" expanded="false" />
-            <element signature="n#checkSignature#0;n#wxModel#0;n#!!top" expanded="false" />
-            <marker date="1496390166493" expanded="true" signature="3367:3748" ph="..." />
-            <marker date="1496390166493" expanded="true" signature="5218:5477" ph="..." />
+            <marker date="1496391932320" expanded="true" signature="53:348" ph="..." />
+            <marker date="1496391932320" expanded="true" signature="1834:2038" ph="..." />
+            <marker date="1496391932320" expanded="true" signature="1834:2045" ph="..." />
+            <marker date="1496391932320" expanded="true" signature="1988:2031" ph="..." />
+            <marker date="1496391932320" expanded="true" signature="2038:2045" ph="..." />
+            <marker date="1496391932320" expanded="true" signature="2106:2143" ph="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/demo/curl_example.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+          <folding />
         </state>
       </provider>
     </entry>

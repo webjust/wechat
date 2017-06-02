@@ -1,7 +1,12 @@
 <?php
 include '../vendor/autoload.php';
 
-$url = 'https://www.jd.com/';
+$appid = "wx542c11817c22d123";
+$appsecret = "8b2d7aac7d5dc87173bc62a429545e18"
+
+$url = "https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=".$appid."&secret=".$appsecret;
+
+//$url = 'https://www.jd.com/';
 
 // 1. cURL初始化
 $ch = curl_init();
@@ -22,4 +27,4 @@ $ret = curl_exec($ch);
 // 4. 关闭资源
 curl_close($ch);
 
-dump($ret);
+echo $ret;

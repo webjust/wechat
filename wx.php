@@ -3,12 +3,9 @@
 define("TOKEN", "xdl2017");
 $wechatObj = new wxModel();
 
-if (isset($_GET['echostr']))
-{
+if (isset($_GET['echostr'])) {
     $wechatObj->valid();
-}
-else
-{
+} else {
     // 接收微信服务器发送过来的xml
     $wechatObj->responseMsg();
 }
@@ -24,7 +21,7 @@ class wxModel
         $echoStr = $_GET["echostr"];
 
         //valid signature , option
-        if($this->checkSignature()){
+        if ($this->checkSignature()) {
             echo $echoStr;
             exit;
         }
@@ -46,7 +43,7 @@ class wxModel
         );
         $database->insert('xml', $data);
 
-        if (!empty($postStr)){
+        if (!empty($postStr)) {
             /* libxml_disable_entity_loader is to prevent XML eXternal Entity Injection,
                the best way is to check the validity of xml by yourself */
             // Disable the ability to load external entities
@@ -61,11 +58,9 @@ class wxModel
             $keyword = trim($postObj->Content);
 
             // 图文  -》 返回图文列表    其他任何关键   默认
-            if ($msgtype == 'text')
-            {
+            if ($msgtype == 'text') {
                 // 判断关键字，根据关键字来自定义回复的消息
-                if ($keyword == "图文")
-                {
+                if ($keyword == "图文") {
                     // php + mysql    读取数据库 拿到文章列表的数据
                     $arr = array(
                         array(
@@ -101,13 +96,12 @@ class wxModel
 EOT;
 
                     $str = "";
-                    foreach ($arr as $v)
-                    {
+                    foreach ($arr as $v) {
                         $str .= "<item>";
-                        $str .= "<Title><![CDATA[".$v['title']."]]></Title>";
-                        $str .= "<Description><![CDATA[".$v['description']."]]></Description>";
-                        $str .= "<PicUrl><![CDATA[".$v['picUrl']."]]></PicUrl>";
-                        $str .= "<Url><![CDATA[".$v['url']."]]></Url>";
+                        $str .= "<Title><![CDATA[" . $v['title'] . "]]></Title>";
+                        $str .= "<Description><![CDATA[" . $v['description'] . "]]></Description>";
+                        $str .= "<PicUrl><![CDATA[" . $v['picUrl'] . "]]></PicUrl>";
+                        $str .= "<Url><![CDATA[" . $v['url'] . "]]></Url>";
                         $str .= "</item>";
                     }
 
@@ -121,6 +115,11 @@ EOT;
                     // Return a formatted string
                     $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $nums);
                     echo $retStr;
+                }
+
+                // 接收到的关键字：美女，返回美图图片
+                if ($keyword == "美女") {
+
                 }
             }
 
@@ -156,7 +155,7 @@ EOT;
             $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $content);
             echo $retStr;
 
-        }else {
+        } else {
             echo "";
             exit;
         }
@@ -185,12 +184,12 @@ EOT;
         $tmpArr = array($token, $timestamp, $nonce);
         // use SORT_STRING rule
         sort($tmpArr, SORT_STRING);
-        $tmpStr = implode( $tmpArr );
-        $tmpStr = sha1( $tmpStr );
+        $tmpStr = implode($tmpArr);
+        $tmpStr = sha1($tmpStr);
 
-        if( $tmpStr == $signature ){
+        if ($tmpStr == $signature) {
             return true;
-        }else{
+        } else {
             return false;
         }
     }
