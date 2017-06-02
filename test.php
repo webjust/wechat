@@ -1,6 +1,11 @@
 <?php
 //echo mt_rand(0,9); die;
 
+include './wxModel.php';
+$model = new wxModel();
+echo $model->getAccessToken();
+
+die;
 $postStr = <<<EOT
 <xml>
  <ToUserName><![CDATA[隔壁老王]]></ToUserName>
@@ -15,7 +20,7 @@ EOT;
 
 var_dump($postStr);
 
-file_put_contents('data.txt', $postStr);
+// file_put_contents('data.txt', $postStr);
 
 // xml 数据如何转换成为数组
 $postObj = simplexml_load_string($postStr, "SimpleXMLElement", LIBXML_NOCDATA);
@@ -90,6 +95,6 @@ $mediaid = 'HMqPQ6if9l18ISY8k7fblAsVHCXyinnzACY7eJP_NNqOzBAxKPVYh-z6wFHyqJa3';
 // Return a formatted string
 $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $mediaid);
 
-file_put_contents('data.txt', $retStr);
+// file_put_contents('data.txt', $retStr);
 
 var_dump($retStr);
