@@ -139,6 +139,29 @@ EOT;
                 }
             }
 
+            // 判断是否发生了事件推送
+            if ($msgtype == 'event') {
+                $event = $postObj->Event;
+                // 订阅事件
+                if ($event == 'subscribe')
+                {
+                    // 订阅后，发送的文本消息
+                    $textTpl = "<xml>
+							<ToUserName><![CDATA[%s]]></ToUserName>
+							<FromUserName><![CDATA[%s]]></FromUserName>
+							<CreateTime>%s</CreateTime>
+							<MsgType><![CDATA[%s]]></MsgType>
+							<Content><![CDATA[%s]]></Content>
+							<FuncFlag>0</FuncFlag>
+							</xml>";
+                    $time = time();
+                    $msgtype = 'text';
+                    $content = "欢迎来到PHP27，请输入美女，查看图片(有效期仅限今天)";
+
+                    $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $content);
+                    echo $retStr;
+                }
+            }
 
             $time = time();
             $msgtype = $postObj->MsgType;
