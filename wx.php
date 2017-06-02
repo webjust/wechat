@@ -11,8 +11,3 @@ if (isset($_GET['echostr'])) {
     $wechatObj->responseMsg();
 }
 
-$wechatObj->valid();
-
-
-
-?>
