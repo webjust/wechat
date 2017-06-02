@@ -1,5 +1,5 @@
 <?php
-echo mt_rand(0,9); die;
+//echo mt_rand(0,9); die;
 
 $postStr = <<<EOT
 <xml>
@@ -85,10 +85,10 @@ $time = time();
 $msgtype = 'image';
 $nums = count($arr);
 $content = "欢迎来到微信公众号的开发世界！__GZPHP27";
-$mediaid = '';
+$mediaid = 'HMqPQ6if9l18ISY8k7fblAsVHCXyinnzACY7eJP_NNqOzBAxKPVYh-z6wFHyqJa3';
 
 // Return a formatted string
-$retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $nums);
+$retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $mediaid);
 
 file_put_contents('data.txt', $retStr);
 

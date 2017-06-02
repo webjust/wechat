@@ -2,7 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="393c885d-60e2-4320-8e68-50d2581b9efa" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/demo/curl_example.php" afterPath="$PROJECT_DIR$/demo/curl_example.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/data.txt" afterPath="$PROJECT_DIR$/data.txt" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/test.php" afterPath="$PROJECT_DIR$/test.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx.php" afterPath="$PROJECT_DIR$/wx.php" />
     </list>
@@ -19,21 +20,21 @@
       <file leaf-file-name="test.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/test.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="312">
-              <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
+            <state relative-caret-position="192">
+              <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="90" selection-end-column="83" />
               <folding>
-                <marker date="1496391932320" expanded="true" signature="53:348" ph="..." />
-                <marker date="1496391932320" expanded="true" signature="1834:2038" ph="..." />
-                <marker date="1496391932320" expanded="true" signature="1834:2045" ph="..." />
-                <marker date="1496391932320" expanded="true" signature="1988:2031" ph="..." />
-                <marker date="1496391932320" expanded="true" signature="2038:2045" ph="..." />
-                <marker date="1496391932320" expanded="true" signature="2106:2143" ph="..." />
+                <marker date="1496392584937" expanded="true" signature="55:350" ph="..." />
+                <marker date="1496392584937" expanded="true" signature="1836:2040" ph="..." />
+                <marker date="1496392584937" expanded="true" signature="1836:2048" ph="..." />
+                <marker date="1496392584937" expanded="true" signature="1990:2033" ph="..." />
+                <marker date="1496392584937" expanded="true" signature="2040:2048" ph="..." />
+                <marker date="1496392584937" expanded="true" signature="2108:2145" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="curl_example.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="curl_example.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/demo/curl_example.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="696">
@@ -43,11 +44,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="wx.php" pinned="false" current-in-tab="false">
+      <file leaf-file-name="wx.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wx.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="248">
-              <caret line="62" column="39" lean-forward="false" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
+            <state relative-caret-position="287">
+              <caret line="137" column="33" lean-forward="false" selection-start-line="137" selection-start-column="33" selection-end-line="137" selection-end-column="33" />
               <folding>
                 <element signature="n#valid#0;n#wxModel#0;n#!!top" expanded="false" />
                 <element signature="e#1763#4666#0#PHP" expanded="false" />
@@ -57,8 +58,10 @@
                 <element signature="e#3299#3728#0#PHP" expanded="false" />
                 <element signature="e#3782#4254#0#PHP" expanded="false" />
                 <element signature="n#checkSignature#0;n#wxModel#0;n#!!top" expanded="false" />
-                <marker date="1496391853275" expanded="true" signature="3342:3723" ph="..." />
-                <marker date="1496391853275" expanded="true" signature="5286:5545" ph="..." />
+                <marker date="1496392647975" expanded="true" signature="3342:3723" ph="..." />
+                <marker date="1496392647975" expanded="true" signature="4819:5279" ph="..." />
+                <marker date="1496392647975" expanded="true" signature="5133:5240" ph="..." />
+                <marker date="1496392647975" expanded="true" signature="6140:6399" ph="..." />
               </folding>
             </state>
           </provider>
@@ -85,9 +88,9 @@
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/index.php" />
         <option value="$PROJECT_DIR$/demo/db_example.php" />
-        <option value="$PROJECT_DIR$/wx.php" />
-        <option value="$PROJECT_DIR$/test.php" />
         <option value="$PROJECT_DIR$/demo/curl_example.php" />
+        <option value="$PROJECT_DIR$/test.php" />
+        <option value="$PROJECT_DIR$/wx.php" />
       </list>
     </option>
   </component>
@@ -252,12 +255,12 @@
       <updated>1496301895887</updated>
       <workItem from="1496301897625" duration="4996000" />
       <workItem from="1496373491453" duration="60000" />
-      <workItem from="1496384645299" duration="7091000" />
+      <workItem from="1496384645299" duration="7455000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="12147000" />
+    <option name="totallyTimeSpent" value="12511000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -392,10 +395,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/demo/curl_example.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/test.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="83" column="0" lean-forward="true" selection-start-line="83" selection-start-column="0" selection-end-line="90" selection-end-column="83" />
+          <folding>
+            <marker date="1496392584937" expanded="true" signature="55:350" ph="..." />
+            <marker date="1496392584937" expanded="true" signature="1836:2040" ph="..." />
+            <marker date="1496392584937" expanded="true" signature="1836:2048" ph="..." />
+            <marker date="1496392584937" expanded="true" signature="1990:2033" ph="..." />
+            <marker date="1496392584937" expanded="true" signature="2040:2048" ph="..." />
+            <marker date="1496392584937" expanded="true" signature="2108:2145" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/wx.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="248">
-          <caret line="62" column="39" lean-forward="false" selection-start-line="62" selection-start-column="39" selection-end-line="62" selection-end-column="39" />
+        <state relative-caret-position="287">
+          <caret line="137" column="33" lean-forward="false" selection-start-line="137" selection-start-column="33" selection-end-line="137" selection-end-column="33" />
           <folding>
             <element signature="n#valid#0;n#wxModel#0;n#!!top" expanded="false" />
             <element signature="e#1763#4666#0#PHP" expanded="false" />
@@ -405,32 +431,11 @@
             <element signature="e#3299#3728#0#PHP" expanded="false" />
             <element signature="e#3782#4254#0#PHP" expanded="false" />
             <element signature="n#checkSignature#0;n#wxModel#0;n#!!top" expanded="false" />
-            <marker date="1496391853275" expanded="true" signature="3342:3723" ph="..." />
-            <marker date="1496391853275" expanded="true" signature="5286:5545" ph="..." />
+            <marker date="1496392647975" expanded="true" signature="3342:3723" ph="..." />
+            <marker date="1496392647975" expanded="true" signature="4819:5279" ph="..." />
+            <marker date="1496392647975" expanded="true" signature="5133:5240" ph="..." />
+            <marker date="1496392647975" expanded="true" signature="6140:6399" ph="..." />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/test.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="312">
-          <caret line="82" column="0" lean-forward="true" selection-start-line="82" selection-start-column="0" selection-end-line="82" selection-end-column="0" />
-          <folding>
-            <marker date="1496391932320" expanded="true" signature="53:348" ph="..." />
-            <marker date="1496391932320" expanded="true" signature="1834:2038" ph="..." />
-            <marker date="1496391932320" expanded="true" signature="1834:2045" ph="..." />
-            <marker date="1496391932320" expanded="true" signature="1988:2031" ph="..." />
-            <marker date="1496391932320" expanded="true" signature="2038:2045" ph="..." />
-            <marker date="1496391932320" expanded="true" signature="2106:2143" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/demo/curl_example.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="696">
-          <caret line="29" column="10" lean-forward="false" selection-start-line="29" selection-start-column="10" selection-end-line="29" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>

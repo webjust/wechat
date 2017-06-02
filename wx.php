@@ -119,7 +119,23 @@ EOT;
 
                 // 接收到的关键字：美女，返回美图图片
                 if ($keyword == "美女") {
+                    $textTpl = <<<EOT
+                                <xml>
+                                <ToUserName><![CDATA[%s]]></ToUserName>
+                                <FromUserName><![CDATA[%s]]></FromUserName>
+                                <CreateTime>%s</CreateTime>
+                                <MsgType><![CDATA[%s]]></MsgType>
+                                <Image>
+                                <MediaId><![CDATA[%s]]></MediaId>
+                                </Image>
+                                </xml>
+EOT;
+                    $time = time();
+                    $msgtype = 'image';
+                    $mediaid = 'HMqPQ6if9l18ISY8k7fblAsVHCXyinnzACY7eJP_NNqOzBAxKPVYh-z6wFHyqJa3';
 
+                    $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $mediaid);
+                    echo $retStr;
                 }
             }
 
