@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="393c885d-60e2-4320-8e68-50d2581b9efa" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/demo/jsonToArray.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/wx.php" afterPath="$PROJECT_DIR$/wx.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -38,7 +36,9 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="359">
               <caret line="27" column="16" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="27" selection-end-column="16" />
-              <folding />
+              <folding>
+                <marker date="1496394479496" expanded="true" signature="322:450" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -56,8 +56,8 @@
       <file leaf-file-name="wx.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/wx.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="205">
-              <caret line="280" column="60" lean-forward="false" selection-start-line="280" selection-start-column="60" selection-end-line="280" selection-end-column="60" />
+            <state relative-caret-position="273">
+              <caret line="288" column="29" lean-forward="true" selection-start-line="288" selection-start-column="29" selection-end-line="288" selection-end-column="29" />
               <folding>
                 <element signature="n#valid#0;n#wxModel#0;n#!!top" expanded="false" />
                 <element signature="n#responseMsg#0;n#wxModel#0;n#!!top" expanded="false" />
@@ -268,12 +268,12 @@
       <updated>1496301895887</updated>
       <workItem from="1496301897625" duration="4996000" />
       <workItem from="1496373491453" duration="60000" />
-      <workItem from="1496384645299" duration="9192000" />
+      <workItem from="1496384645299" duration="9536000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14248000" />
+    <option name="totallyTimeSpent" value="14592000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
@@ -313,7 +313,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="1" selection-end-column="33" />
-          <folding />
+          <folding>
+            <marker date="1496394479496" expanded="true" signature="322:450" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -427,7 +429,9 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="359">
           <caret line="27" column="16" lean-forward="true" selection-start-line="10" selection-start-column="0" selection-end-line="27" selection-end-column="16" />
-          <folding />
+          <folding>
+            <marker date="1496394479496" expanded="true" signature="322:450" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -441,8 +445,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/wx.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="205">
-          <caret line="280" column="60" lean-forward="false" selection-start-line="280" selection-start-column="60" selection-end-line="280" selection-end-column="60" />
+        <state relative-caret-position="273">
+          <caret line="288" column="29" lean-forward="true" selection-start-line="288" selection-start-column="29" selection-end-line="288" selection-end-column="29" />
           <folding>
             <element signature="n#valid#0;n#wxModel#0;n#!!top" expanded="false" />
             <element signature="n#responseMsg#0;n#wxModel#0;n#!!top" expanded="false" />
