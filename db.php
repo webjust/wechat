@@ -22,4 +22,3 @@ $database = new \Medoo\Medoo([
     ]
 ]);
 
-// dump($database);
