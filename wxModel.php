@@ -1,6 +1,9 @@
 <?php
 class wxModel
 {
+    public $appid = "wx542c11817c22d123";
+    public $appsecret = "8b2d7aac7d5dc87173bc62a429545e18";
+
     /*
      * 接口配置信息，此信息需要你有自己的服务器资源，填写的URL需要正确响应微信发送的Token验证*/
     public function valid()
@@ -124,6 +127,53 @@ EOT;
                     $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $mediaid);
                     echo $retStr;
                 }
+
+                // 天气预报：天气+广州
+                if (substr($keyword, 0, 6) == '天气') {
+                    $city = substr($keyword, 6, strlen($keyword));
+                    $str = $this->getWeather($city);
+
+                    // 发送天气的消息
+                    $textTpl = "<xml>
+                            <ToUserName><![CDATA[%s]]></ToUserName>
+                            <FromUserName><![CDATA[%s]]></FromUserName>
+                            <CreateTime>%s</CreateTime>
+                            <MsgType><![CDATA[%s]]></MsgType>
+                            <Content><![CDATA[%s]]></Content>
+                            <FuncFlag>0</FuncFlag>
+                            </xml>";
+                    $time = time();
+                    $msgtype = 'text';
+                    $content = $str;
+
+                    /*
+                    广州今天的天气信息：\n
+                    温度：\n
+                    气候：\n
+                    适宜：\n
+                    2017-6-5
+                     */
+
+                    $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $content);
+                    echo $retStr;
+                }
+
+                if ($keyword == '测试') {
+                    // 发送天气的消息
+                    $textTpl = "<xml>
+                            <ToUserName><![CDATA[%s]]></ToUserName>
+                            <FromUserName><![CDATA[%s]]></FromUserName>
+                            <CreateTime>%s</CreateTime>
+                            <MsgType><![CDATA[%s]]></MsgType>
+                            <Content><![CDATA[%s]]></Content>
+                            <FuncFlag>0</FuncFlag>
+                            </xml>";
+                    $time = time();
+                    $msgtype = 'text';
+                    $content = '<a href="http://wechat.bls666.club/demo.php">测试</a>';
+                    $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $content);
+                    echo $retStr;
+                }
             }
 
             // 判断是否发生了事件推送
@@ -144,6 +194,42 @@ EOT;
                     $time = time();
                     $msgtype = 'text';
                     $content = "欢迎来到PHP27，请输入美女，查看图片(有效期仅限今天)";
+
+                    $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $content);
+                    echo $retStr;
+                }
+
+                // 点击菜单的时间推送
+                if ($event == 'CLICK')
+                {
+                    // 判断到底是哪一个菜单
+                    $key = $postObj->EventKey;
+
+                    switch ($key) {
+                        case '20000':
+                            $content = "您点击的是图文列表菜单";
+                            break;
+                        case '30000':
+                            $content = "您点击的是关于我们菜单";
+                            break;
+                        case '40000':
+                            $content = "您点击的是帮助信息菜单";
+                            break;
+                        default:
+                            $content = "不存在这个菜单";
+                            break;
+                    }
+
+                    $textTpl = "<xml>
+                            <ToUserName><![CDATA[%s]]></ToUserName>
+                            <FromUserName><![CDATA[%s]]></FromUserName>
+                            <CreateTime>%s</CreateTime>
+                            <MsgType><![CDATA[%s]]></MsgType>
+                            <Content><![CDATA[%s]]></Content>
+                            <FuncFlag>0</FuncFlag>
+                            </xml>";
+                    $time = time();
+                    $msgtype = 'text';
 
                     $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $content);
                     echo $retStr;
@@ -223,7 +309,7 @@ EOT;
     /*
      * curl请求，获取返回的数据
      * */
-    public function getData($url)
+    public function getData($url, $method='GET', $arr='')
     {
         // 1. cURL初始化
         $ch = curl_init();
@@ -237,6 +323,10 @@ EOT;
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        if (strtoupper($method) == 'POST') {
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $arr);
+        }
 
         // 3. 执行cURL请求
         $ret = curl_exec($ch);
@@ -260,7 +350,7 @@ EOT;
         // redis  memcache SESSION
         session_start();
 
-        if ($_SESSION['access_token'] && (time()-$_SESSION['expire_time']) < 7000 )
+        if (isset($_SESSION['access_token']) && (time()-$_SESSION['expire_time']) < 7000 )
         {
             return $_SESSION['access_token'];
         } else {
@@ -275,5 +365,39 @@ EOT;
             $_SESSION['expire_time'] = time();
             return $access_token;
         }
+    }
+
+    public function getWeather($city)
+    {
+        $appkey = '3d92eb3623d5cc1ec6c85f596cc58054';
+        // url
+        $url = "http://v.juhe.cn/weather/index?format=2&cityname=".$city."&key=".$appkey;
+        return $this->getData($url);
+    }
+
+    public function getUserOpenIdList()
+    {
+        $url = "https://api.weixin.qq.com/cgi-bin/user/get?access_token=".$this->getAccessToken();
+        return $this->getData($url);
+    }
+
+    // 网页授权的接口，获取用户信息
+    public function getUserInfo()
+    {
+        $appid = $this->appid;
+        $redirect_uri = urlencode('http://wechat.bls666.club/login.php');
+        $scope = 'snsapi_userinfo';
+
+        $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" . $appid . "&redirect_uri=" . $redirect_uri . "&response_type=" . $response_type . "&scope=" . $scope . "&state=STATE#wechat_redirect";
+
+        $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$appid."&redirect_uri=".$redirect_uri."&response_type=code&scope=".$scope."&state=STATE#wechat_redirect";
+        header('location:' . $url);
+        // return $url;
+    }
+
+    public function geiIp()
+    {
+        $url = "https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token=".$this->getAccessToken();
+        return $this->getData($url);
     }
 }
