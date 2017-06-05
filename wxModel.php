@@ -170,7 +170,7 @@ EOT;
                             </xml>";
                     $time = time();
                     $msgtype = 'text';
-                    $content = '<a href="http://wechat.bls666.club/demo.php">测试</a>';
+                    $content = '<a href="http://wx.bls666.club/demo.php">测试</a>';
                     $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $content);
                     echo $retStr;
                 }
@@ -385,10 +385,10 @@ EOT;
     public function getUserInfo()
     {
         $appid = $this->appid;
-        $redirect_uri = urlencode('http://wechat.bls666.club/login.php');
+        $redirect_uri = urlencode('http://wx.bls666.club/login.php');
         $scope = 'snsapi_userinfo';
 
-        $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" . $appid . "&redirect_uri=" . $redirect_uri . "&response_type=" . $response_type . "&scope=" . $scope . "&state=STATE#wechat_redirect";
+        // $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" . $appid . "&redirect_uri=" . $redirect_uri . "&response_type=" . $response_type . "&scope=" . $scope . "&state=STATE#wechat_redirect";
 
         $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$appid."&redirect_uri=".$redirect_uri."&response_type=code&scope=".$scope."&state=STATE#wechat_redirect";
         header('location:' . $url);
