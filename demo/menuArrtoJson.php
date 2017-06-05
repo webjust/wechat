@@ -46,20 +46,25 @@ $arr = array(
             "sub_button" => array(
                 array(
                     "type" => "click",
-                    "name" => "今日歌曲",
+                    "name" => "关于我们",
                     "key" => "30000"
                 ),
                 array(
                     "type" => "click",
-                    "name" => "今日歌曲",
+                    "name" => "帮助信息",
                     "key" => "40000"
+                ),
+                array(
+                    "type" => "view",
+                    "name" => "我的商城",
+                    "url" => "https://kdt.im/Kok8Nr"
                 )
             )
         ),
         array(
             "type" => "view",
-            "name" => "搜索",
-            "url" => "http://www.soso.com/"
+            "name" => "网易新闻",
+            "url" => "http://3g.163.com/"
         )
     )
 );
