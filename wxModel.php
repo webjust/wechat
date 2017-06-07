@@ -1,6 +1,9 @@
 <?php
 class wxModel
 {
+    public $appid = "wx542c11817c22d123";
+    public $appsecret = "8b2d7aac7d5dc87173bc62a429545e18";
+
     /*
      * 接口配置信息，此信息需要你有自己的服务器资源，填写的URL需要正确响应微信发送的Token验证*/
     public function valid()
@@ -124,6 +127,70 @@ EOT;
                     $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $mediaid);
                     echo $retStr;
                 }
+
+                // 天气预报：天气+广州
+                if (substr($keyword, 0, 6) == '天气') {
+                    $city = substr($keyword, 6, strlen($keyword));
+                    $str = $this->getWeather($city);
+
+                    // 发送天气的消息
+                    $textTpl = "<xml>
+                            <ToUserName><![CDATA[%s]]></ToUserName>
+                            <FromUserName><![CDATA[%s]]></FromUserName>
+                            <CreateTime>%s</CreateTime>
+                            <MsgType><![CDATA[%s]]></MsgType>
+                            <Content><![CDATA[%s]]></Content>
+                            <FuncFlag>0</FuncFlag>
+                            </xml>";
+                    $time = time();
+                    $msgtype = 'text';
+                    $content = $str;
+
+                    /*
+                    广州今天的天气信息：\n
+                    温度：\n
+                    气候：\n
+                    适宜：\n
+                    2017-6-5
+                     */
+
+                    $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $content);
+                    echo $retStr;
+                }
+
+                if ($keyword == '测试') {
+                    // 发送天气的消息
+                    $textTpl = "<xml>
+                            <ToUserName><![CDATA[%s]]></ToUserName>
+                            <FromUserName><![CDATA[%s]]></FromUserName>
+                            <CreateTime>%s</CreateTime>
+                            <MsgType><![CDATA[%s]]></MsgType>
+                            <Content><![CDATA[%s]]></Content>
+                            <FuncFlag>0</FuncFlag>
+                            </xml>";
+                    $time = time();
+                    $msgtype = 'text';
+                    $content = '<a href="http://wechat.bls666.club/demo.php">测试</a>';
+                    $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $content);
+                    echo $retStr;
+                }
+
+                if ($keyword == '分享') {
+                    // 发送天气的消息
+                    $textTpl = "<xml>
+                            <ToUserName><![CDATA[%s]]></ToUserName>
+                            <FromUserName><![CDATA[%s]]></FromUserName>
+                            <CreateTime>%s</CreateTime>
+                            <MsgType><![CDATA[%s]]></MsgType>
+                            <Content><![CDATA[%s]]></Content>
+                            <FuncFlag>0</FuncFlag>
+                            </xml>";
+                    $time = time();
+                    $msgtype = 'text';
+                    $content = '<a href="http://wechat.bls666.club/share.php">分享</a>';
+                    $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $content);
+                    echo $retStr;
+                }
             }
 
             // 判断是否发生了事件推送
@@ -144,6 +211,63 @@ EOT;
                     $time = time();
                     $msgtype = 'text';
                     $content = "欢迎来到PHP27，请输入美女，查看图片(有效期仅限今天)";
+
+                    $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $content);
+                    echo $retStr;
+                }
+
+                // 用户扫描了临时二维码
+                if ($event == 'SCAN') {
+                    /*
+                    <xml>
+                    <ToUserName><![CDATA[gh_0383b7e5223f]]></ToUserName>
+                    <FromUserName><![CDATA[oQjWLxJyfW4XHNfBD4RoPZAD7gy8]]></FromUserName>
+                    <CreateTime>1496735267</CreateTime>
+                    <MsgType><![CDATA[event]]></MsgType>
+                    <Event><![CDATA[SCAN]]></Event>
+                    <EventKey><![CDATA[888]]></EventKey>
+                    <Ticket><![CDATA[gQHC7zwAAAAAAAAAAS5odHRwOi8vd2VpeGluLnFxLmNvbS9xLzAydU9XTjU4MlJlYjQxYkttXzFwMXoAAgRuXDZZAwSAOgkA]]></Ticket>
+                    </xml>
+                     */
+                    $key = $postObj->EventKey;
+
+                    if ($key == '888') {
+                        // 业务逻辑
+                        
+                    }
+                }
+
+                // 点击菜单的时间推送
+                if ($event == 'CLICK')
+                {
+                    // 判断到底是哪一个菜单
+                    $key = $postObj->EventKey;
+
+                    switch ($key) {
+                        case '20000':
+                            $content = "您点击的是图文列表菜单";
+                            break;
+                        case '30000':
+                            $content = "您点击的是关于我们菜单";
+                            break;
+                        case '40000':
+                            $content = "您点击的是帮助信息菜单";
+                            break;
+                        default:
+                            $content = "不存在这个菜单";
+                            break;
+                    }
+
+                    $textTpl = "<xml>
+                            <ToUserName><![CDATA[%s]]></ToUserName>
+                            <FromUserName><![CDATA[%s]]></FromUserName>
+                            <CreateTime>%s</CreateTime>
+                            <MsgType><![CDATA[%s]]></MsgType>
+                            <Content><![CDATA[%s]]></Content>
+                            <FuncFlag>0</FuncFlag>
+                            </xml>";
+                    $time = time();
+                    $msgtype = 'text';
 
                     $retStr = sprintf($textTpl, $fromusername, $tousername, $time, $msgtype, $content);
                     echo $retStr;
@@ -223,7 +347,7 @@ EOT;
     /*
      * curl请求，获取返回的数据
      * */
-    public function getData($url)
+    public function getData($url, $method='GET', $arr='')
     {
         // 1. cURL初始化
         $ch = curl_init();
@@ -237,6 +361,10 @@ EOT;
         curl_setopt($ch, CURLOPT_URL, $url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, 0);
+        if (strtoupper($method) == 'POST') {
+            curl_setopt($ch, CURLOPT_POST, 1);
+            curl_setopt($ch, CURLOPT_POSTFIELDS, $arr);
+        }
 
         // 3. 执行cURL请求
         $ret = curl_exec($ch);
@@ -260,7 +388,7 @@ EOT;
         // redis  memcache SESSION
         session_start();
 
-        if ($_SESSION['access_token'] && (time()-$_SESSION['expire_time']) < 7000 )
+        if (isset($_SESSION['access_token']) && (time()-$_SESSION['expire_time']) < 7000 )
         {
             return $_SESSION['access_token'];
         } else {
@@ -276,4 +404,162 @@ EOT;
             return $access_token;
         }
     }
+
+    public function getWeather($city)
+    {
+        $appkey = '3d92eb3623d5cc1ec6c85f596cc58054';
+        // url
+        $url = "http://v.juhe.cn/weather/index?format=2&cityname=".$city."&key=".$appkey;
+        return $this->getData($url);
+    }
+
+    public function getUserOpenIdList()
+    {
+        $url = "https://api.weixin.qq.com/cgi-bin/user/get?access_token=".$this->getAccessToken();
+        return $this->getData($url);
+    }
+
+    // 网页授权的接口，获取用户信息
+    public function getUserInfo()
+    {
+        $appid = $this->appid;
+        $redirect_uri = urlencode('http://wechat.bls666.club/login.php');
+        $scope = 'snsapi_userinfo';
+
+        // $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=" . $appid . "&redirect_uri=" . $redirect_uri . "&response_type=" . $response_type . "&scope=" . $scope . "&state=STATE#wechat_redirect";
+
+        $url = "https://open.weixin.qq.com/connect/oauth2/authorize?appid=".$appid."&redirect_uri=".$redirect_uri."&response_type=code&scope=".$scope."&state=STATE#wechat_redirect";
+        header('location:' . $url);
+        // return $url;
+    }
+
+    // 拉取用户信息
+    public function getUserDetail()
+    {
+    	// 通过code换取网页授权access_token
+    	$code = $_GET['code'];
+    	$appid = $this->appid;
+    	$secret = $this->appsecret;
+
+    	$url = "https://api.weixin.qq.com/sns/oauth2/access_token?appid=".$appid."&secret=".$secret."&code=".$code."&grant_type=authorization_code";
+
+    	$access_token_arr = $this->jsonToArray($this->getData($url));
+
+    	$access_token = $access_token_arr['access_token'];
+    	$open_id = $access_token_arr['openid'];
+
+
+    	// 获取用户的详细信息
+    	$url = "https://api.weixin.qq.com/sns/userinfo?access_token=".$access_token."&openid=".$open_id."&lang=zh_CN";
+    	return json_decode($this->getData($url), 1);
+    }
+
+    public function geiIp()
+    {
+        $url = "https://api.weixin.qq.com/cgi-bin/getcallbackip?access_token=".$this->getAccessToken();
+        return $this->getData($url);
+    }
+
+    // 创建二维码ticket：临时
+    public function getQrCode()
+    {
+    	// 1. 创建二维码ticket
+    	$url = "https://api.weixin.qq.com/cgi-bin/qrcode/create?access_token=".$this->getAccessToken();
+    	$postStr = '{"expire_seconds": 604800, "action_name": "QR_SCENE", "action_info": {"scene": {"scene_id": 888}}}';
+    	$ret = $this->getData($url, 'POST', $postStr);
+    	$arr = $this->jsonToArray($ret);
+    	$ticket = $arr['ticket'];
+
+    	// 2.通过ticket换取二维码
+    	// 提醒：1. TICKET记得进行UrlEncode
+        // ticket正确情况下，http 返回码是200，是一张图片，可以直接展示或者下载。(不需要curl请求)
+    	$imgUrl = "https://mp.weixin.qq.com/cgi-bin/showqrcode?ticket=".urlencode($ticket);
+    	// $imgUrl = $this->getData($url);
+    	return $imgUrl;
+    	// echo $imgUrl;
+    }
+
+    private function getJsApiTicket() {
+    // jsapi_ticket 应该全局存储与更新，以下代码以写入到文件中做示例
+    $data = json_decode($this->get_php_file("jsapi_ticket.php"));
+    if ($data->expire_time < time()) {
+      $accessToken = $this->getAccessToken();
+      // 如果是企业号用以下 URL 获取 ticket
+      // $url = "https://qyapi.weixin.qq.com/cgi-bin/get_jsapi_ticket?access_token=$accessToken";
+      // https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=
+      $url = "https://api.weixin.qq.com/cgi-bin/ticket/getticket?type=jsapi&access_token=$accessToken";
+      $res = json_decode($this->httpGet($url));
+      $ticket = $res->ticket;
+      if ($ticket) {
+        $data->expire_time = time() + 7000;
+        $data->jsapi_ticket = $ticket;
+        $this->set_php_file("jsapi_ticket.php", json_encode($data));
+      }
+    } else {
+      $ticket = $data->jsapi_ticket;
+    }
+
+    return $ticket;
+  }
+
+  private function httpGet($url) {
+    $curl = curl_init();
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_TIMEOUT, 500);
+    // 为保证第三方服务器与微信服务器之间数据传输的安全性，所有微信接口采用https方式调用，必须使用下面2行代码打开ssl安全校验。
+    // 如果在部署过程中代码在此处验证失败，请到 http://curl.haxx.se/ca/cacert.pem 下载新的证书判别文件。
+    curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, true);
+    curl_setopt($curl, CURLOPT_SSL_VERIFYHOST, true);
+    curl_setopt($curl, CURLOPT_URL, $url);
+
+    $res = curl_exec($curl);
+    curl_close($curl);
+
+    return $res;
+  }
+
+  private function createNonceStr($length = 16) {
+    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    $str = "";
+    for ($i = 0; $i < $length; $i++) {
+      $str .= substr($chars, mt_rand(0, strlen($chars) - 1), 1);
+    }
+    return $str;
+  }
+
+  private function get_php_file($filename) {
+    return trim(substr(file_get_contents($filename), 15));
+  }
+
+  private function set_php_file($filename, $content) {
+    $fp = fopen($filename, "w");
+    fwrite($fp, "<?php exit();?>" . $content);
+    fclose($fp);
+  }
+
+  public function getSignPackage() {
+    $jsapiTicket = $this->getJsApiTicket();
+
+    // 注意 URL 一定要动态获取，不能 hardcode.
+    $protocol = (!empty($_SERVER['HTTPS']) && $_SERVER['HTTPS'] !== 'off' || $_SERVER['SERVER_PORT'] == 443) ? "https://" : "http://";
+    $url = "$protocol$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+    $timestamp = time();
+    $nonceStr = $this->createNonceStr();
+
+    // 这里参数的顺序要按照 key 值 ASCII 码升序排序
+    $string = "jsapi_ticket=$jsapiTicket&noncestr=$nonceStr&timestamp=$timestamp&url=$url";
+
+    $signature = sha1($string);
+
+    $signPackage = array(
+      "appId"     => $this->appid,
+      "nonceStr"  => $nonceStr,
+      "timestamp" => $timestamp,
+      "url"       => $url,
+      "signature" => $signature,
+      "rawString" => $string
+    );
+    return $signPackage; 
+  }
 }

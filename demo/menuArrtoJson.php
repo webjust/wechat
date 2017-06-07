@@ -32,31 +32,31 @@ $json = <<<EOT
  }
 EOT;
 
-$arr = json_decode($json, 1);
+// $arr = json_decode($json, 1);
 
 $arr = array(
     'button' => array(
         array(
             "type" => "click",
-            "name" => "图文列表",
+            "name" => urlencode("图文列表"),
             "key" => "20000"
         ),
         array(
-            "name" => "下拉菜单",
+            "name" => urlencode("下拉菜单"),
             "sub_button" => array(
                 array(
                     "type" => "click",
-                    "name" => "关于我们",
+                    "name" => urlencode("关于我们"),
                     "key" => "30000"
                 ),
                 array(
                     "type" => "click",
-                    "name" => "帮助信息",
+                    "name" => urlencode("帮助信息"),
                     "key" => "40000"
                 ),
                 array(
                     "type" => "view",
-                    "name" => "我的商城",
+                    "name" => urlencode("我的商城"),
                     "url" => "https://kdt.im/Kok8Nr"
                 )
             )
@@ -70,3 +70,7 @@ $arr = array(
 );
 
 dump($arr);
+
+echo urldecode(json_encode($arr));
+
+echo "<hr>1212";

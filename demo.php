@@ -1,5 +1,6 @@
 <?php
 include "./vendor/autoload.php";
+include './wxModel.php';
 
-dump($_SERVER);
-var_dump($_SERVER);
+$wxObj = new wxModel();
+$url = $wxObj->getUserInfo();
