@@ -44,7 +44,7 @@ $json = urldecode(json_encode($arr));
 
 // 访问自定义菜单的接口
 // http请求方式：POST（请使用https协议） https://api.weixin.qq.com/cgi-bin/menu/create?access_token=ACCESS_TOKEN
-$url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=".$wxObj->getAccessToken();
+$url = "https://api.weixin.qq.com/cgi-bin/menu/create?access_token=" . $wxObj->getAccessToken();
 
 // curl post请求
 $ret = $wxObj->getData($url, 'POST', $json);

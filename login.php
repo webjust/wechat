@@ -1,4 +1,4 @@
-<?php 
+<?php
 include './wxModel.php';
 include './vendor/autoload.php';
 include './db.php';
@@ -22,14 +22,14 @@ headimgurl	用户头像，最后一个数值代表正方形头像大小（有0�
 privilege	用户特权信息，json 数组，如微信沃卡用户为（chinaunicom）
  */
 $data = array(
-	'openid' => $userinfo['openid'],
-	'nickname' => $userinfo['nickname'],
-	'sex' => $userinfo['sex'],
-	'province' => $userinfo['province'],
-	'city' => $userinfo['city'],
-	'country' => $userinfo['country'],
-	'headimgurl' => $userinfo['headimgurl'],
-	'privilege' => $userinfo['privilege']
+    'openid' => $userinfo['openid'],
+    'nickname' => $userinfo['nickname'],
+    'sex' => $userinfo['sex'],
+    'province' => $userinfo['province'],
+    'city' => $userinfo['city'],
+    'country' => $userinfo['country'],
+    'headimgurl' => $userinfo['headimgurl'],
+    'privilege' => $userinfo['privilege']
 );
 $database->insert('user', $data);
 
@@ -37,10 +37,10 @@ $database->insert('user', $data);
 <!DOCTYPE html>
 <html lang="en">
 <head>
-	<meta charset="UTF-8">
-	<title>Login</title>
+    <meta charset="UTF-8">
+    <title>Login</title>
 </head>
 <body>
-<h1>LOGIN PAGE</h1>	
+<h1>LOGIN PAGE</h1>
 </body>
 </html>
