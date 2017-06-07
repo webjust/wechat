@@ -1,4 +1,5 @@
-.idea
+/.idea
 *.xml
 /vendor
+.idea/workspace.xml
 .user.ini
